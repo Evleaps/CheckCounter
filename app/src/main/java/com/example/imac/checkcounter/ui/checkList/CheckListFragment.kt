@@ -9,8 +9,12 @@ import com.example.imac.checkcounter.R
 
 class CheckListFragment : Fragment(), CheckListContract.View {
 
- //   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
- //       inflater.inflate(R.layout.fragment, container, false)
+    companion object {
+        const val TAG = "TAG"
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.check_list_fragment, container, false)
 
 
     override fun showList() {
