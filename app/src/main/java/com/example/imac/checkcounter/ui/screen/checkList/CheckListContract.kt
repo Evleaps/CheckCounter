@@ -1,4 +1,4 @@
-package com.example.imac.checkcounter.ui.checkList
+package com.example.imac.checkcounter.ui.screen.checkList
 
 interface CheckListContract {
 

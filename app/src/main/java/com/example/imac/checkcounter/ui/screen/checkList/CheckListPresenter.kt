@@ -1,12 +1,19 @@
-package com.example.imac.checkcounter.ui.checkList
+package com.example.imac.checkcounter.ui.screen.checkList
+
+import com.example.imac.checkcounter.ui.router.Router
+import javax.inject.Inject
 
 class CheckListPresenter : CheckListContract.Presenter {
+
+    @Inject
+    private val router: Router? = null
+
     override fun getList() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onAddCheck() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        router!!.add(Router.CREATE_CHECK)
     }
 
     override fun deleteCheck() {

@@ -32,4 +32,6 @@ ext {
     rxbindingsVersion = '2.1.1'
 
     roomVersion = '1.1.1'
+
+    daggerVersion = '2.11'
 }
