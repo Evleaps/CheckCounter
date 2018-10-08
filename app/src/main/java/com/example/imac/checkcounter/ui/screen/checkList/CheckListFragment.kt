@@ -8,6 +8,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.checkList.adapter.CheckListAdapter
@@ -23,7 +26,8 @@ class CheckListFragment : Fragment(), CheckListContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CheckListPresenter()
+
+//    private val presenter = CheckListPresenter(childFragmentManager)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -34,7 +38,11 @@ class CheckListFragment : Fragment(), CheckListContract.View {
 
         recyclerView = rootView.findViewById(R.id.recyclerList)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = CheckListAdapter(listOf(check1, check2, check3))
+        recyclerView.adapter = CheckListAdapter(listOf(check1, check2, check3)) {
+        //    presenter.onAddCheck()
+        }
+
+
 
         return rootView
     }

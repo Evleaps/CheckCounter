@@ -1,12 +1,11 @@
 package com.example.imac.checkcounter.ui.screen.checkList
 
+import android.support.v4.app.FragmentManager
 import com.example.imac.checkcounter.ui.router.Router
-import javax.inject.Inject
 
-class CheckListPresenter : CheckListContract.Presenter {
+class CheckListPresenter(fragmentManager: FragmentManager) : CheckListContract.Presenter {
 
-    @Inject
-    private val router: Router? = null
+    private var router: Router = Router(fragmentManager)
 
     override fun getList() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
