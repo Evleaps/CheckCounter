@@ -8,7 +8,7 @@ interface CheckListContract {
 
     interface Presenter {
         fun getList()
-        fun onAddCheck()
+        fun addCheck()
         fun deleteCheck()
         fun updateCheck()
     }

@@ -4,19 +4,12 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.checkList.adapter.CheckListAdapter
-import kotlinx.android.synthetic.main.adapter_check_list.*
-import kotlinx.android.synthetic.main.adapter_check_list.view.*
-import kotlinx.android.synthetic.main.check_list_fragment.view.*
 
 
 class CheckListFragment : Fragment(), CheckListContract.View {
@@ -26,8 +19,7 @@ class CheckListFragment : Fragment(), CheckListContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-
-//    private val presenter = CheckListPresenter(childFragmentManager)
+    private val presenter = CheckListPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -39,10 +31,8 @@ class CheckListFragment : Fragment(), CheckListContract.View {
         recyclerView = rootView.findViewById(R.id.recyclerList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = CheckListAdapter(listOf(check1, check2, check3)) {
-        //    presenter.onAddCheck()
+            presenter.addCheck()
         }
-
-
 
         return rootView
     }

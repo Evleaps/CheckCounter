@@ -7,7 +7,7 @@ import com.example.imac.checkcounter.ui.router.Router
 
 class SplashActivity : AppCompatActivity() {
 
-    private val router = Router(supportFragmentManager)
+    private val router = Router.getInstance(supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
