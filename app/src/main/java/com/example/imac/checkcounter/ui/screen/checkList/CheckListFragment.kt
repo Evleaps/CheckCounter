@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
-import com.example.imac.checkcounter.ui.screen.checkList.adapter.CheckListAdapter
+import com.example.imac.checkcounter.ui.screen.adapter.CheckListAdapter
 
 
 class CheckListFragment : Fragment(), CheckListContract.View {
@@ -23,12 +23,12 @@ class CheckListFragment : Fragment(), CheckListContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val rootView = inflater.inflate(R.layout.check_list_fragment, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_check_list, container, false)
         val check1 = Check("5000", "check1", "12:2:2012")
         val check2 = Check("6000", "check2", "12:2:2013")
         val check3 = Check("7000", "check3", "12:2:2014")
 
-        recyclerView = rootView.findViewById(R.id.recyclerList)
+        recyclerView = rootView.findViewById(R.id.checkList_recyclerList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = CheckListAdapter(listOf(check1, check2, check3)) {
             presenter.addCheck()

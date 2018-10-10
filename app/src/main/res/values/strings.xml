@@ -3,4 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="my_checks">Мои чеки</string>
     <string name="adapter_check_date">Чек от %d</string>
+
+    <!--CreateCheck screen-->
+    <string name="complete">Подтвердить</string>
+    <string name="new_point">Новый пункт</string>
+    <string name="price">Цена</string>
 </resources>
