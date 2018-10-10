@@ -39,9 +39,19 @@ class Router private constructor() : IRouter {
         val fragm = getFragment(fragmentId)
 
         if (localFragmentManager!!.findFragmentByTag(fragm.tag) == null) {
-            Log.d(TAG, "Instance != null")
             transaction.add(R.id.splash_container, fragm, fragm.tag)
         }
+        transaction.commit()
+    }
+
+    override fun addToStack(fragmentId: String) {
+        val transaction = localFragmentManager!!.beginTransaction()
+        val fragm = getFragment(fragmentId)
+
+        if (localFragmentManager!!.findFragmentByTag(fragm.tag) == null) {
+            transaction.replace(R.id.splash_container, fragm, fragm.tag)
+        }
+        transaction.addToBackStack(fragmentId)
         transaction.commit()
     }
 

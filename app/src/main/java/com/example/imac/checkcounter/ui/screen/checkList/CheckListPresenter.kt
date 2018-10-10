@@ -11,7 +11,7 @@ class CheckListPresenter : CheckListContract.Presenter {
     }
 
     override fun addCheck() {
-        router.replace(Router.CREATE_CHECK)
+        router.addToStack(Router.CREATE_CHECK)
     }
 
     override fun deleteCheck() {
