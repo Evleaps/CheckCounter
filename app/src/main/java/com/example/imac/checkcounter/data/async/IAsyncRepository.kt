@@ -2,7 +2,7 @@ package com.example.imac.checkcounter.data.async
 
 interface IAsyncRepository {
 
-    fun getChecks()
+    fun getCheckList()
 
-    fun saveCheck()
+    fun insertCheck()
 }

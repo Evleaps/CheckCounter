@@ -11,7 +11,7 @@ import com.example.imac.checkcounter.data.model.entity.Check
 abstract class CheckDao {
 
     @Query("SELECT * FROM $CHECK_TABLE_NAME")
-    abstract fun getCheck(): Check?
+    abstract fun getCheckList(): Check?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertCheck(check: Check)
