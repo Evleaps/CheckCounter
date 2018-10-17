@@ -21,13 +21,14 @@ abstract class AppDatabase: RoomDatabase() {
 
     companion object {
         private val TAG = AppDatabase::class.java.simpleName
-        @Volatile
-        private var instance: AppDatabase? = null
+        @Volatile private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
                 instance ?: synchronized(this) {
                     instance ?: buildDatabase(context).also { instance = it }
                 }
+
+        fun getInstance() = instance
 
         private fun buildDatabase(context: Context) =
                 Room.databaseBuilder(context.applicationContext,

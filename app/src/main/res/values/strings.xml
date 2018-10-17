@@ -8,4 +8,5 @@
     <string name="complete">Подтвердить</string>
     <string name="new_point">Новый пункт</string>
     <string name="price">Цена</string>
+    <string name="new_check">Новый чек</string>
 </resources>

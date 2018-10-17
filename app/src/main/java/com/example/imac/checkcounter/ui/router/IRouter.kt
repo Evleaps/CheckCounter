@@ -6,6 +6,8 @@ interface IRouter {
 
     fun add(fragmentId: String)
 
+    fun back()
+
     fun replace(fragmentId: String)
 
     fun remove(fragmentId: String)

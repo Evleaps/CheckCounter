@@ -34,6 +34,11 @@ class Router private constructor() : IRouter {
         const val CREATE_CHECK = "createCheck"
     }
 
+    override fun back() {
+        val transaction = localFragmentManager!!.beginTransaction()
+        localFragmentManager!!.popBackStack()
+    }
+
     override fun add(fragmentId: String) {
         val transaction = localFragmentManager!!.beginTransaction()
         val fragm = getFragment(fragmentId)

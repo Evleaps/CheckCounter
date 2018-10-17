@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.adapter_check_list.view.*
 internal class CheckListAdapter(private val checkList: List<Check>,
                                 private val onClick: () -> Unit) : RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
 
+    private var items: List<Check> = checkList
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.adapter_check_list, parent, false)
 
@@ -28,12 +30,16 @@ internal class CheckListAdapter(private val checkList: List<Check>,
         holder.bindItems(checkList[position])
     }
 
+    fun items(list: List<Check>) {
+        items = list
+        notifyDataSetChanged()
+    }
 
     internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(item: Check) {
             itemView.adapterCheckDate.text = item.date
-            itemView.adapterTotal.text = item.total
+            itemView.adapterTotal.text = item.total.toString()
         }
     }
 }
