@@ -1,8 +1,16 @@
 package com.example.imac.checkcounter.data
 
-class DataRepository : IRepository {
+import com.example.imac.checkcounter.data.async.IAsyncRepository
+import com.example.imac.checkcounter.data.model.entity.Check
 
-    override fun getChecks() {
+class DataRepository(private val asyncRepository: IAsyncRepository) : IRepository {
 
+
+    override fun saveCheck(check: Check) {
+        asyncRepository.insertCheck(check)
     }
+
+    override fun getChecks(): List<Check> = asyncRepository.getCheckList()
+
+
 }

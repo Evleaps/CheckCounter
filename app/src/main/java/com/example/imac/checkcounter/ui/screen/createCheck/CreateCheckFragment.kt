@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
-import com.example.imac.checkcounter.data.AppDatabase
 import com.example.imac.checkcounter.data.model.dao.CheckDao
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
+import kotlinx.android.synthetic.main.fragment_create_check.*
 
 class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
@@ -26,17 +26,21 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_create_check, container, false)
-      //  db = AppDatabase.getInstance(container!!.context).getCheckDao()
-
-        val check1 = Check(null,"5000", "check1", "12:2:2012")
-        val check2 = Check(null,"6000", "check2", "12:2:2013")
-        val check3 = Check(null,"7000", "check3", "12:2:2014")
 
         recyclerView = rootView.findViewById(R.id.createCheck_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = CreateCheckAdapter(listOf(check1, check2, check3))
+        recyclerView.adapter = CreateCheckAdapter(presenter.getCheckList())
+
+        createCheckSend.setOnClickListener {
+            presenter.onSend(createCheckNewPosition.text.toString().toInt(), createCheckTotal.text.toString())
+        }
 
         return rootView
     }
+
+    override fun updateList() {
+
+    }
+
 
 }
