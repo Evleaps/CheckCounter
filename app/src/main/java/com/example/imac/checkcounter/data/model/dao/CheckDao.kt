@@ -6,13 +6,12 @@ import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.example.imac.checkcounter.data.CHECK_TABLE_NAME
 import com.example.imac.checkcounter.data.model.entity.Check
-import io.reactivex.Single
 
 @Dao
 abstract class CheckDao {
 
     @Query("SELECT * FROM $CHECK_TABLE_NAME")
-    abstract fun getCheckList(): Single<List<Check>>
+    abstract fun getCheckList(): List<Check>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertCheck(check: Check)

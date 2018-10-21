@@ -4,12 +4,10 @@ import com.example.imac.checkcounter.data.model.entity.Check
 
 interface CreateCheckContract {
     interface View {
-        fun updateList(list: List<Check>)
+        fun updateList()
     }
     interface Presenter {
-        fun onSend(name: String, total: Int)
-        fun loadAllChecks()
-        fun onBack()
+        fun onSend(total: Int, name: String)
         fun getCheckList(): List<Check>
     }
 }
