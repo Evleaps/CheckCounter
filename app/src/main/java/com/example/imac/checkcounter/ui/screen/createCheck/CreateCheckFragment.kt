@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.dao.CheckDao
-import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
 import kotlinx.android.synthetic.main.fragment_create_check.*
+import kotlinx.android.synthetic.main.fragment_create_check.view.*
 
 class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
@@ -22,7 +22,7 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CreateCheckPresenter()
+    private val presenter = CreateCheckPresenter(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_create_check, container, false)
@@ -31,7 +31,7 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = CreateCheckAdapter(presenter.getCheckList())
 
-        createCheckSend.setOnClickListener {
+        rootView.createCheckSend.setOnClickListener {
             presenter.onSend(createCheckNewPosition.text.toString().toInt(), createCheckTotal.text.toString())
         }
 

@@ -1,13 +1,12 @@
 package com.example.imac.checkcounter.ui.screen.createCheck
 
 import com.example.imac.checkcounter.data.DataRepository
-import com.example.imac.checkcounter.data.IRepository
 import com.example.imac.checkcounter.data.async.AsyncDataRepository
 import com.example.imac.checkcounter.data.model.entity.Check
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CreateCheckPresenter : CreateCheckContract.Presenter {
+class CreateCheckPresenter(private val view: CreateCheckFragment?) : CreateCheckContract.Presenter {
 
     private val repository = DataRepository(AsyncDataRepository())
 
@@ -17,6 +16,6 @@ class CreateCheckPresenter : CreateCheckContract.Presenter {
         repository.saveCheck(Check(null, total, name, currentDate))
     }
 
-    override fun getCheckList(): List<Check> = repository.getChecks()
+    override fun getCheckList(): List<Check> = repository.getAllChecks()
 
 }

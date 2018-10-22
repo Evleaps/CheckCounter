@@ -9,7 +9,7 @@ import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
 import kotlinx.android.synthetic.main.adapter_check_list.view.*
 
-internal class CheckListAdapter(private val checkList: List<Check>,
+internal class CheckListAdapter(private var checkList: List<Check>,
                                 private val onClick: () -> Unit) : RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,12 +28,16 @@ internal class CheckListAdapter(private val checkList: List<Check>,
         holder.bindItems(checkList[position])
     }
 
+    fun updateList(list: List<Check>) {
+        checkList = list
+        notifyDataSetChanged()
+    }
 
     internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(item: Check) {
             itemView.adapterCheckDate.text = item.date
-            itemView.adapterTotal.text = item.total
+            itemView.adapterTotal.text = item.total.toString()
         }
     }
 }

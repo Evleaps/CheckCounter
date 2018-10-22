@@ -44,7 +44,11 @@ class Router private constructor() : IRouter {
         transaction.commit()
     }
 
-    override fun addToStack(fragmentId: String) {
+    override fun back() {
+        localFragmentManager?.let { it.popBackStackImmediate()  }
+    }
+
+    override fun navigateTo(fragmentId: String) {
         val transaction = localFragmentManager!!.beginTransaction()
         val fragm = getFragment(fragmentId)
 

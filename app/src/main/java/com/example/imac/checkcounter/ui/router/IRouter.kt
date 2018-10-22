@@ -2,11 +2,13 @@ package com.example.imac.checkcounter.ui.router
 
 interface IRouter {
 
-    fun addToStack(fragmentId: String)
+    fun navigateTo(fragmentId: String)
 
     fun add(fragmentId: String)
 
     fun replace(fragmentId: String)
+
+    fun back()
 
     fun remove(fragmentId: String)
 
