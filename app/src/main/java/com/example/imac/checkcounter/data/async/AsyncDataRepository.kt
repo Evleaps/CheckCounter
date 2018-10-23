@@ -12,6 +12,11 @@ class AsyncDataRepository : IAsyncRepository {
         Observable.fromCallable { db?.insertCheck(check) }
     }
 
+    override fun getCheck(): Single<Check> {
+        val db = AppDatabase.getInstance()?.getCheckDao()
+        return db?.getCheck() ?: Single.amb(emptyList())
+    }
+
     override fun getCheckList(): Single<List<Check>> {
         val db = AppDatabase.getInstance()?.getCheckDao()
         return db?.getCheckList() ?: Single.amb(emptyList())

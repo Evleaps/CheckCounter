@@ -12,4 +12,6 @@ class DataRepository(private val asyncRepository: IAsyncRepository) : IRepositor
     }
 
     override fun getAllChecks(): Single<List<Check>> = asyncRepository.getCheckList()
+
+    override fun getCheck(): Single<Check> = asyncRepository.getCheck()
 }

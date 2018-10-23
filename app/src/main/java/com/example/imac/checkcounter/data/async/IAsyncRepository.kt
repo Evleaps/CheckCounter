@@ -7,5 +7,7 @@ interface IAsyncRepository {
 
     fun getCheckList(): Single<List<Check>>
 
+    fun getCheck(): Single<Check>
+
     fun insertCheck(check: Check)
 }

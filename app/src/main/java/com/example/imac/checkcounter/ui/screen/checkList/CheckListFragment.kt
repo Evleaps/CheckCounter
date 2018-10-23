@@ -43,5 +43,4 @@ class CheckListFragment : Fragment(), CheckListContract.View {
         adapter.updateList(checks)
     }
 
-
 }

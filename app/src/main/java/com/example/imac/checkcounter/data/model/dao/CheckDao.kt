@@ -16,4 +16,7 @@ abstract class CheckDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertCheck(check: Check)
+
+    @Query("SELECT * FROM $CHECK_TABLE_NAME")
+    abstract fun getCheck(): Single<Check>
 }

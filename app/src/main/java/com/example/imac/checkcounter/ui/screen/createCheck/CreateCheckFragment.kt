@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.dao.CheckDao
+import com.example.imac.checkcounter.data.model.entity.CheckItems
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
 import kotlinx.android.synthetic.main.fragment_create_check.*
 import kotlinx.android.synthetic.main.fragment_create_check.view.*
@@ -29,16 +30,20 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
         recyclerView = rootView.findViewById(R.id.createCheck_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = CreateCheckAdapter(presenter.getCheckList())
+        recyclerView.adapter = CreateCheckAdapter(emptyList())
 
         rootView.createCheckSend.setOnClickListener {
-            presenter.onSend(createCheckNewPosition.text.toString().toInt(), createCheckTotal.text.toString())
+            presenter.onSave()
+        }
+
+        rootView.addItemCheck.setOnClickListener {
+            presenter.onAddCheck(createCheckNewPosition.text.toString().toInt(), createCheckTotal.text.toString())
         }
 
         return rootView
     }
 
-    override fun updateList() {
+    override fun updateList(): List<CheckItems> {
 
     }
 

@@ -5,5 +5,6 @@ import io.reactivex.Single
 
 interface IRepository {
     fun getAllChecks(): Single<List<Check>>
+    fun getCheck(): Single<Check>
     fun saveCheck(check: Check)
 }
