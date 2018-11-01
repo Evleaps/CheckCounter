@@ -9,11 +9,11 @@ import com.example.imac.checkcounter.ui.router.Router
 class SplashActivity : AppCompatActivity() {
 
     private val router = Router.getInstance(supportFragmentManager)
-    private val initializeDb = AppDatabase.getInstance(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        AppDatabase.getInstance(this)
 
         AppDatabase.getInstance(applicationContext)
         router.add(Router.CHECK_LIST)

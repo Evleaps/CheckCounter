@@ -8,6 +8,7 @@
     <string name="complete">Сохранить чек</string>
     <string name="add_item">Добавить пункт</string>
     <string name="new_point">Новый пункт</string>
+    <string name="name">Название</string>
     <string name="price">Цена</string>
     <string name="new_check">Новый чек</string>
 </resources>

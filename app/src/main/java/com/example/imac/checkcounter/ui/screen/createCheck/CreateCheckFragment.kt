@@ -24,27 +24,28 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
     private lateinit var recyclerView: RecyclerView
     private val presenter = CreateCheckPresenter(this)
+    private val adapter = CreateCheckAdapter(emptyList())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_create_check, container, false)
 
         recyclerView = rootView.findViewById(R.id.createCheck_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = CreateCheckAdapter(emptyList())
+        recyclerView.adapter = adapter
 
         rootView.createCheckSend.setOnClickListener {
-            presenter.onSave()
+            presenter.onSave(createCheckName.text.toString())
         }
 
         rootView.addItemCheck.setOnClickListener {
-            presenter.onAddCheck(createCheckNewPosition.text.toString().toInt(), createCheckTotal.text.toString())
+            presenter.onAddItem(createCheckTotal.text.toString().toInt(), createCheckNewPosition.text.toString())
         }
 
         return rootView
     }
 
-    override fun updateList(): List<CheckItems> {
-
+    override fun updateList(list: List<CheckItems>) {
+        adapter.updateList(list)
     }
 
 

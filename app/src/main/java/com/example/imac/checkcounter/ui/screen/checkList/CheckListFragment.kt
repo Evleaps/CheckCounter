@@ -31,6 +31,8 @@ class CheckListFragment : Fragment(), CheckListContract.View {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
+        presenter.loadChecks()
+
         rootView.createCheck.setOnClickListener {
             presenter.addCheck()
         }

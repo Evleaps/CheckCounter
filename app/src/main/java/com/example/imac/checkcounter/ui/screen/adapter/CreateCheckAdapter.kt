@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
+import com.example.imac.checkcounter.data.model.entity.CheckItems
 import kotlinx.android.synthetic.main.adapter_create_check.view.*
 
-internal class CreateCheckAdapter(private val checkList: List<Check>) : RecyclerView.Adapter<CreateCheckAdapter.ViewHolder>() {
+internal class CreateCheckAdapter(private val checkList: List<CheckItems>) : RecyclerView.Adapter<CreateCheckAdapter.ViewHolder>() {
 
-    private var items: List<Check> = checkList
+    private var items: List<CheckItems> = checkList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.adapter_create_check, parent, false)
@@ -25,16 +26,16 @@ internal class CreateCheckAdapter(private val checkList: List<Check>) : Recycler
         holder.bindItems(checkList[position])
     }
 
-    fun items(list: List<Check>) {
+    fun updateList(list: List<CheckItems>) {
         items = list
         notifyDataSetChanged()
     }
 
     internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(item: Check) {
+        fun bindItems(item: CheckItems) {
             itemView.createCheck_position.text = item.name
-            itemView.createCheck_price.text = item.total.toString()
+            itemView.createCheck_price.text = item.cost.toString()
         }
     }
 }

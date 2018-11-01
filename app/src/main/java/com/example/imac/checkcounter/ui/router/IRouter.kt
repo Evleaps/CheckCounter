@@ -10,8 +10,6 @@ interface IRouter {
 
     fun replace(fragmentId: String)
 
-    fun back()
-
     fun remove(fragmentId: String)
 
     fun getTransaction(): android.support.v4.app.FragmentTransaction
