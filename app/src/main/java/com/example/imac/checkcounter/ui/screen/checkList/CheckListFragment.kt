@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CheckListAdapter
+import kotlinx.android.synthetic.main.fragment_check_list.view.*
 
 
 class CheckListFragment : Fragment(), CheckListContract.View {
@@ -19,18 +20,18 @@ class CheckListFragment : Fragment(), CheckListContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CheckListPresenter()
+    private val presenter = CheckListPresenter(this)
+    private val adapter = CheckListAdapter(emptyList()){}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_check_list, container, false)
-        val check1 = Check(null,"5000", "check1", "12:2:2012")
-        val check2 = Check(null,"6000", "check2", "12:2:2013")
-        val check3 = Check(null,"7000", "check3", "12:2:2014")
 
         recyclerView = rootView.findViewById(R.id.checkList_recyclerList)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = CheckListAdapter(listOf(check1, check2, check3)) {
+        recyclerView.adapter = adapter
+
+        rootView.createCheck.setOnClickListener {
             presenter.addCheck()
         }
 
@@ -38,13 +39,8 @@ class CheckListFragment : Fragment(), CheckListContract.View {
     }
 
 
-
-
-
-    override fun showList() {
-        TODO("not implemented") //To
-
+    override fun updateCheckList(checks: List<Check>) {
+        adapter.updateList(checks)
     }
-
 
 }

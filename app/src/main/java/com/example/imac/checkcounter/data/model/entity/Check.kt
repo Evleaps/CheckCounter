@@ -9,4 +9,4 @@ data class Check(@PrimaryKey(autoGenerate = true)
                  val id: Long?,
                  val total: Int,
                  val name:  String,
-                 val date:  String)
+                 val date:  String)//todo: add list of checkItems
