@@ -9,11 +9,12 @@ import com.example.imac.checkcounter.data.model.entity.CheckItems
 import com.example.imac.checkcounter.ui.router.Router
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CreateCheckPresenter(private val view: CreateCheckFragment?) : CreateCheckContract.Presenter {
 
     private val repository = DataRepository(AsyncDataRepository())
-    private var itemsList = MutableList<CheckItems>()
+    private var itemsList = ArrayList<CheckItems>()
     private var router: Router = Router.getInstance(null)
 
     override fun onSave(name: String) {
@@ -22,8 +23,7 @@ class CreateCheckPresenter(private val view: CreateCheckFragment?) : CreateCheck
     }
 
     override fun onAddItem(total: Int, name: String) {
-
-        itemsList.plus(CheckItems(total, name))
+        itemsList.add(CheckItems(total, name))
         Log.d("ROMAN", "itemsList.toList(): ${itemsList.toList()}")
         view?.updateList(itemsList.toList())
     }
