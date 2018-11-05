@@ -8,15 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
-import com.example.imac.checkcounter.data.model.dao.CheckDao
-import com.example.imac.checkcounter.data.model.entity.CheckItems
+import com.example.imac.checkcounter.data.model.entity.CheckItem
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
 import kotlinx.android.synthetic.main.fragment_create_check.*
 import kotlinx.android.synthetic.main.fragment_create_check.view.*
 
 class CreateCheckFragment : Fragment(), CreateCheckContract.View {
-
-    private lateinit var db: CheckDao
 
     companion object {
         @JvmStatic val TAG = "TAG"
@@ -38,15 +35,27 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
         }
 
         rootView.addItemCheck.setOnClickListener {
-            presenter.onAddItem(createCheckTotal.text.toString().toInt(), createCheckNewPosition.text.toString())
+            if (createCheckTotal.text.toString().isNotEmpty() && createCheckNewPosition.text.toString().isNotEmpty()) {
+                presenter.onAddItem(createCheckTotal.text.toString().toInt(), createCheckNewPosition.text.toString())
+                createCheckTotal.text = null
+                createCheckNewPosition.text = null
+                createCheckName.text = null
+                createCheckNewPosition.requestFocus()
+            }
         }
 
         return rootView
     }
 
-    override fun updateList(list: List<CheckItems>) {
-        adapter.updateList(list)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (presenter.getCheckItemsList().isNotEmpty()) {
+            presenter.onSave(createCheckName.text.toString())
+        }
     }
 
+    override fun updateList(list: List<CheckItem>) {
+        adapter.updateList(list)
+    }
 
 }
