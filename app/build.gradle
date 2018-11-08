@@ -50,4 +50,8 @@ dependencies {
     //gson
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
+    //koin
+    implementation "org.koin:koin-android:$rootProject.koinVersion"
+
+
 }

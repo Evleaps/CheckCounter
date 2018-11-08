@@ -12,6 +12,7 @@ import com.example.imac.checkcounter.data.model.entity.CheckItem
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
 import kotlinx.android.synthetic.main.fragment_create_check.*
 import kotlinx.android.synthetic.main.fragment_create_check.view.*
+import org.koin.android.ext.android.inject
 
 class CreateCheckFragment : Fragment(), CreateCheckContract.View {
 
@@ -20,7 +21,7 @@ class CreateCheckFragment : Fragment(), CreateCheckContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CreateCheckPresenter(this)
+    private val presenter: CreateCheckPresenter by inject()
     private val adapter = CreateCheckAdapter(emptyList())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

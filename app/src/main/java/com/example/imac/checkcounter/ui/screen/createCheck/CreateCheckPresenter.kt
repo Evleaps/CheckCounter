@@ -10,9 +10,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CreateCheckPresenter(private val view: CreateCheckFragment?) : CreateCheckContract.Presenter {
+class CreateCheckPresenter(private val repository: DataRepository) : CreateCheckContract.Presenter {
 
-    private val repository = DataRepository(AsyncDataRepository())
+    private lateinit var view: CreateCheckContract.View
     private var itemsList = ArrayList<CheckItem>()
     private var router: Router = Router.getInstance(null)
 

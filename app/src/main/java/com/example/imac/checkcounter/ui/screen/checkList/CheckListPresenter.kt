@@ -1,15 +1,15 @@
 package com.example.imac.checkcounter.ui.screen.checkList
 
 import com.example.imac.checkcounter.data.DataRepository
-import com.example.imac.checkcounter.data.async.AsyncDataRepository
 import com.example.imac.checkcounter.ui.router.Router
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class CheckListPresenter(private val view: CheckListFragment?) : CheckListContract.Presenter {
+class CheckListPresenter(private val repository: DataRepository) : CheckListContract.Presenter {
+
+    private lateinit var view: CheckListContract.View
 
     private var router: Router = Router.getInstance(null)
-    private val repository = DataRepository(AsyncDataRepository())
 
     override fun loadChecks() {
         repository.getAllChecks()

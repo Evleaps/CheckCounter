@@ -3,8 +3,9 @@ package com.example.imac.checkcounter.ui.screen.splash
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.imac.checkcounter.R
-import com.example.imac.checkcounter.data.AppDatabase
+import com.example.imac.checkcounter.di.appModule
 import com.example.imac.checkcounter.ui.router.Router
+import org.koin.android.ext.android.startKoin
 
 class SplashActivity : AppCompatActivity() {
 
@@ -13,9 +14,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        AppDatabase.getInstance(this)
+        startKoin(this, listOf(appModule))
 
-        AppDatabase.getInstance(applicationContext)
         router.add(Router.CHECK_LIST)
     }
 }

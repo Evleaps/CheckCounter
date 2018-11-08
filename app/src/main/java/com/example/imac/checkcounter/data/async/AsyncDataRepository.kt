@@ -6,23 +6,20 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
-class AsyncDataRepository : IAsyncRepository {
+class AsyncDataRepository(private val db: AppDatabase) : IAsyncRepository {
 
     override fun insertCheck(check: Check) {
-        val db = AppDatabase.getInstance()?.getCheckDao()
         Observable.just(db)
                 .subscribeOn(Schedulers.io())
-                .subscribe { it.insertCheck(check) }
+                .subscribe { it.getCheckDao().insertCheck(check) }
     }
 
     override fun getCheck(): Single<Check> {
-        val db = AppDatabase.getInstance()?.getCheckDao()
-        return db?.getCheck() ?: Single.amb(emptyList())
+        return db.getCheckDao().getCheck()
     }
 
     override fun getCheckList(): Single<List<Check>> {
-        val db = AppDatabase.getInstance()?.getCheckDao()
-        return db?.getCheckList() ?: Single.amb(emptyList())
+        return db.getCheckDao().getCheckList()
     }
 
 }

@@ -11,6 +11,7 @@ import com.example.imac.checkcounter.R
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CheckListAdapter
 import kotlinx.android.synthetic.main.fragment_check_list.view.*
+import org.koin.android.ext.android.inject
 
 
 class CheckListFragment : Fragment(), CheckListContract.View {
@@ -20,7 +21,7 @@ class CheckListFragment : Fragment(), CheckListContract.View {
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CheckListPresenter(this)
+    private val presenter: CheckListPresenter by inject()
     private val adapter = CheckListAdapter(emptyList()){}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

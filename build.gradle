@@ -32,4 +32,5 @@ ext {
     rxbindingsVersion = '2.1.1'
     gsonVersion = '2.8.2'
     roomVersion = '1.1.1'
+    koinVersion = '1.0.1'
 }
