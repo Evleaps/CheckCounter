@@ -1,4 +1,4 @@
-package com.example.imac.checkcounter.data
+package com.example.imac.checkcounter.data.db
 
 import android.arch.persistence.room.TypeConverter
 import com.example.imac.checkcounter.data.model.entity.CheckItem

@@ -1,10 +1,9 @@
-package com.example.imac.checkcounter.data
+package com.example.imac.checkcounter.data.db
 
 import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
-import android.content.Context
 import android.util.Log
+import com.example.imac.checkcounter.common.DB_VERSION
 import com.example.imac.checkcounter.data.model.dao.CheckDao
 import com.example.imac.checkcounter.data.model.entity.Check
 
@@ -15,9 +14,7 @@ abstract class AppDatabase : RoomDatabase() {
      */
     abstract fun getCheckDao(): CheckDao
 
-    init {
-        Log.d(TAG, "Instance Database")
-    }
+    init { Log.d(TAG, "Instance Database") }
 
     companion object {
         private val TAG = AppDatabase::class.java.simpleName

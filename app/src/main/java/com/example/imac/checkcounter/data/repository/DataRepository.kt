@@ -1,11 +1,10 @@
-package com.example.imac.checkcounter.data
+package com.example.imac.checkcounter.data.repository
 
-import com.example.imac.checkcounter.data.async.IAsyncRepository
+import com.example.imac.checkcounter.data.repository.async.IAsyncRepository
 import com.example.imac.checkcounter.data.model.entity.Check
 import io.reactivex.Single
 
 class DataRepository(private val asyncRepository: IAsyncRepository) : IRepository {
-
 
     override fun saveCheck(check: Check) {
         asyncRepository.insertCheck(check)

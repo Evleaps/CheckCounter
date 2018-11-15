@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
-import com.example.imac.checkcounter.data.CHECK_TABLE_NAME
+import com.example.imac.checkcounter.common.CHECK_TABLE_NAME
 import com.example.imac.checkcounter.data.model.entity.Check
 import io.reactivex.Single
 

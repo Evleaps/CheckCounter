@@ -1,13 +1,13 @@
 package com.example.imac.checkcounter.ui.screen.createCheck
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
+import com.example.imac.checkcounter.common.LOG_PREFIX
 import com.example.imac.checkcounter.core.presentation.BaseFragment
 import com.example.imac.checkcounter.data.model.entity.CheckItem
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
@@ -18,7 +18,7 @@ import org.koin.android.ext.android.inject
 class CreateCheckFragment : BaseFragment<CreateCheckContract.Presenter>(), CreateCheckContract.View {
 
     companion object {
-        @JvmStatic val TAG = "TAG"
+        @JvmStatic val TAG = LOG_PREFIX + CreateCheckFragment::class.java.simpleName
     }
 
     private lateinit var recyclerView: RecyclerView

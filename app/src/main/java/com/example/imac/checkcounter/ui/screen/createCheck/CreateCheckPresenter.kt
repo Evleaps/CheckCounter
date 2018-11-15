@@ -2,7 +2,7 @@ package com.example.imac.checkcounter.ui.screen.createCheck
 
 
 import com.example.imac.checkcounter.core.presentation.BasePresenter
-import com.example.imac.checkcounter.data.DataRepository
+import com.example.imac.checkcounter.data.repository.DataRepository
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.data.model.entity.CheckItem
 import com.example.imac.checkcounter.ui.router.Router

@@ -1,4 +1,4 @@
-package com.example.imac.checkcounter.data
+package com.example.imac.checkcounter.data.repository
 
 import com.example.imac.checkcounter.data.model.entity.Check
 import io.reactivex.Single

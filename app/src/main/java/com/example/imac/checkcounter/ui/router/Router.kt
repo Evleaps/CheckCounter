@@ -6,17 +6,16 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import com.example.imac.checkcounter.R
+import com.example.imac.checkcounter.common.LOG_PREFIX
 import com.example.imac.checkcounter.ui.screen.checkList.CheckListFragment
 import com.example.imac.checkcounter.ui.screen.createCheck.CreateCheckFragment
 
 class Router private constructor() : IRouter {
 
-    init {
-        Log.d(TAG, "Instance Router")
-    }
+    init { Log.d(TAG, "Instance Router") }
 
     companion object {
-        private val TAG = Router::class.java.simpleName
+        private val TAG = LOG_PREFIX + Router::class.java.simpleName
         private var instance: Router? = null
         private var localFragmentManager: FragmentManager? = null
 

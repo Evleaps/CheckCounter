@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
+import com.example.imac.checkcounter.common.LOG_PREFIX
 import com.example.imac.checkcounter.core.presentation.BaseFragment
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CheckListAdapter
@@ -19,7 +20,7 @@ class CheckListFragment : BaseFragment<CheckListContract.Presenter>(), CheckList
     override val presenter: CheckListContract.Presenter by inject()
 
     companion object {
-        @JvmStatic val TAG = "TAG"
+        @JvmStatic val TAG = LOG_PREFIX + CheckListFragment::class.java.simpleName
     }
 
     private lateinit var recyclerView: RecyclerView

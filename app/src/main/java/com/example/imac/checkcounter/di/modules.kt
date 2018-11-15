@@ -1,11 +1,11 @@
 package com.example.imac.checkcounter.di
 
 import android.arch.persistence.room.Room
-import com.example.imac.checkcounter.data.AppDatabase
-import com.example.imac.checkcounter.data.DATABASE_NAME
-import com.example.imac.checkcounter.data.DataRepository
-import com.example.imac.checkcounter.data.async.AsyncDataRepository
-import com.example.imac.checkcounter.data.async.IAsyncRepository
+import com.example.imac.checkcounter.data.db.AppDatabase
+import com.example.imac.checkcounter.common.DATABASE_NAME
+import com.example.imac.checkcounter.data.repository.DataRepository
+import com.example.imac.checkcounter.data.repository.async.AsyncDataRepository
+import com.example.imac.checkcounter.data.repository.async.IAsyncRepository
 import com.example.imac.checkcounter.ui.screen.checkList.CheckListContract
 import com.example.imac.checkcounter.ui.screen.checkList.CheckListPresenter
 import com.example.imac.checkcounter.ui.screen.createCheck.CreateCheckPresenter

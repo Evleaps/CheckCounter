@@ -1,6 +1,6 @@
-package com.example.imac.checkcounter.data.async
+package com.example.imac.checkcounter.data.repository.async
 
-import com.example.imac.checkcounter.data.AppDatabase
+import com.example.imac.checkcounter.data.db.AppDatabase
 import com.example.imac.checkcounter.data.model.entity.Check
 import io.reactivex.Observable
 import io.reactivex.Single
