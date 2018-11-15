@@ -6,6 +6,7 @@ import com.example.imac.checkcounter.data.DATABASE_NAME
 import com.example.imac.checkcounter.data.DataRepository
 import com.example.imac.checkcounter.data.async.AsyncDataRepository
 import com.example.imac.checkcounter.data.async.IAsyncRepository
+import com.example.imac.checkcounter.ui.screen.checkList.CheckListContract
 import com.example.imac.checkcounter.ui.screen.checkList.CheckListPresenter
 import com.example.imac.checkcounter.ui.screen.createCheck.CreateCheckPresenter
 import org.koin.android.ext.koin.androidApplication
@@ -26,7 +27,7 @@ val appModule = module {
 
     single { DataRepository(get()) }
 
-    single { CheckListPresenter(get()) }
+    factory { CheckListPresenter(get()) as CheckListContract.Presenter }
 
-    single { CreateCheckPresenter(get()) }
+    factory { CreateCheckPresenter(get()) }
 }

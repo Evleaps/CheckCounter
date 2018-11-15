@@ -1,13 +1,12 @@
 package com.example.imac.checkcounter.ui.screen.checkList
 
+import com.example.imac.checkcounter.core.presentation.BasePresenter
 import com.example.imac.checkcounter.data.DataRepository
 import com.example.imac.checkcounter.ui.router.Router
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class CheckListPresenter(private val repository: DataRepository) : CheckListContract.Presenter {
-
-    private lateinit var view: CheckListContract.View
+class CheckListPresenter(private val repository: DataRepository) : BasePresenter<CheckListContract.View>(), CheckListContract.Presenter {
 
     private var router: Router = Router.getInstance(null)
 
