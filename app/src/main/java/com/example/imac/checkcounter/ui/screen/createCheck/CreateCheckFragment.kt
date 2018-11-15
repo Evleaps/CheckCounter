@@ -8,19 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
+import com.example.imac.checkcounter.core.presentation.BaseFragment
 import com.example.imac.checkcounter.data.model.entity.CheckItem
 import com.example.imac.checkcounter.ui.screen.adapter.CreateCheckAdapter
 import kotlinx.android.synthetic.main.fragment_create_check.*
 import kotlinx.android.synthetic.main.fragment_create_check.view.*
+import org.koin.android.ext.android.inject
 
-class CreateCheckFragment : Fragment(), CreateCheckContract.View {
+class CreateCheckFragment : BaseFragment<CreateCheckContract.Presenter>(), CreateCheckContract.View {
 
     companion object {
         @JvmStatic val TAG = "TAG"
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CreateCheckPresenter(this)
+    override val presenter: CreateCheckPresenter by inject()
     private val adapter = CreateCheckAdapter(emptyList())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

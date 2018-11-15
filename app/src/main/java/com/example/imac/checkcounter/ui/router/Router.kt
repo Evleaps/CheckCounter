@@ -82,7 +82,7 @@ class Router private constructor() : IRouter {
     }
 
 
-    private fun getFragment(fragment: String) : Fragment{
+    private fun getFragment(fragment: String) : Fragment {
         when(fragment) {
             CHECK_LIST   -> return CheckListFragment()
             CREATE_CHECK -> return CreateCheckFragment()

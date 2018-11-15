@@ -9,7 +9,7 @@ import com.example.imac.checkcounter.data.model.dao.CheckDao
 import com.example.imac.checkcounter.data.model.entity.Check
 
 @Database(entities = [Check::class], version = DB_VERSION, exportSchema = false )
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     /**
      * @return The DAO for the DebugMessage table.
      */
@@ -21,18 +21,5 @@ abstract class AppDatabase: RoomDatabase() {
 
     companion object {
         private val TAG = AppDatabase::class.java.simpleName
-        @Volatile private var instance: AppDatabase? = null
-
-        fun getInstance(context: Context): AppDatabase =
-                instance ?: synchronized(this) {
-                    instance ?: buildDatabase(context).also { instance = it }
-                }
-
-        fun getInstance() = instance
-
-        private fun buildDatabase(context: Context) =
-                Room.databaseBuilder(context,
-                        AppDatabase::class.java, DATABASE_NAME)
-                        .build()
     }
 }

@@ -1,26 +1,28 @@
 package com.example.imac.checkcounter.ui.screen.checkList
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.imac.checkcounter.R
+import com.example.imac.checkcounter.core.presentation.BaseFragment
 import com.example.imac.checkcounter.data.model.entity.Check
 import com.example.imac.checkcounter.ui.screen.adapter.CheckListAdapter
 import kotlinx.android.synthetic.main.fragment_check_list.view.*
+import org.koin.android.ext.android.inject
 
 
-class CheckListFragment : Fragment(), CheckListContract.View {
+class CheckListFragment : BaseFragment<CheckListContract.Presenter>(), CheckListContract.View {
+
+    override val presenter: CheckListContract.Presenter by inject()
 
     companion object {
         @JvmStatic val TAG = "TAG"
     }
 
     private lateinit var recyclerView: RecyclerView
-    private val presenter = CheckListPresenter(this)
     private val adapter = CheckListAdapter(emptyList()){}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
