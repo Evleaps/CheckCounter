@@ -7,16 +7,24 @@
 
     <include layout="@layout/toolbar"/>
 
-    <Button
-        android:id="@+id/createCheck"
-        android:text="@string/new_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/checkList_recyclerList"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/checkList_recyclerList"
+            android:layout_width="385dp"
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/createCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="@color/colorRed1"
+            android:src="@android:drawable/ic_input_add" />
+
+    </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>
